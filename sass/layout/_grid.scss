@@ -1,33 +1,82 @@
 @use '../util' as u;
 
 .grid{
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 40px;
-    width: min(100% - 40px, 1116px);
-    margin-inline: auto;
-
+    
     &__main{
         display: grid;
         grid-template-columns: 1fr;
+        gap: 40px;
+        width: min(100% - 40px, 1116px);
+        margin-inline: auto;
+
+        /* tablet */
+        @include u.breakpoint('medium') {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        /* desktop */
+        @include u.breakpoint('large') {
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr;
+        }
+
+        &--card{
+            display: grid;
+            border: 1px solid var(--white);
+            min-height: 200px;
+        }
+
+        .menu{
+            display: flex;
+            flex-direction: column;
+
+            .menu__header{
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                
+                padding: 20px;
+                background-color: var(--navy-900);
+                border-bottom: 1px solid var(--white);
+
+                img{
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 50%;
+                    border: 2px solid var(--white);
+                }
+                 h1{
+                    font-size: .8rem;
+                    font-weight: 700;
+                }
+
+                &__text{
+                    flex-grow: 1;
+                    margin-left: 2rem;
+                    color: var(--white);
+                    width: 100%;
+                }
+               
+            }
+            &__content{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+                padding: 20px;
+                background-color: var(--navy-800);
+                width: auto;
+            }
+
+            @include u.breakpoint('large') {
+            grid-column: 1 / -1; /* take up full width on large screens */
+            }
+
+            @include u.breakpoint('medium') {
+            grid-column: 1 / 3; /* take up 2 columns on tablet screens */
+            }
+        }
     }
 
-    // @media (min-width: 768px) {
-    //     grid-template-columns: repeat(2, 1fr);
-    // }
-
-    @include u.breakpoint('medium') {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .box{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 24px;
-        height: 100px;
-        background-color: red;
-        color: white;
-    }
+    
 }
 
