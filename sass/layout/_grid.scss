@@ -4,23 +4,22 @@
     border-radius: 20px;
 }
 
-.rounded-top{
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-}
-
 .grid {
     width: calc(100% - 2rem);
+    min-width: 300px;
+    max-width: 400px;
 
   @include u.breakpoint("large") {
     display: flex;
     justify-content: center;
     align-content: center;
+    max-width: unset
   }
   @include u.breakpoint("medium") {
     display: flex;
     justify-content: center;
     align-content: center;
+    max-width: unset
   }
 
   &__main {
@@ -29,14 +28,12 @@
     gap: 20px;
     width: 100%;
     max-width: 450px;
-    min-width: auto;
     margin-inline: auto;
 
     @include u.breakpoint("medium") {
       grid-template-columns: repeat(3, 1fr);
       gap: 20px;
       max-width: 821px;
-      max-height: 80vh;
     }
     @include u.breakpoint("large") {
       grid-template-columns: repeat(4, 1fr);
@@ -52,7 +49,6 @@
     &--card {
       display: flex;
       flex-direction: column;
-      border: 1px solid var(--white);
       width: auto;
       min-height: 200px;
       border-radius: 20px;
@@ -72,13 +68,14 @@
         height: 20%;
       }
       img{
-            width: 60px;
-            height: 60px;
-        }
+          width: 60px;
+          height: 60px;
+      }
 
         &__content{
           display: flex;
           flex-direction: column;
+          justify-content: center;
           flex-grow: 5;
           background-color: var(--navy-900);
           border-radius: 20px;
@@ -89,11 +86,6 @@
             justify-content: space-between;
             align-items: baseline;
 
-            ul{
-              display: block;
-              padding: 0;
-
-            }
             li{
                 display: inline-block;
                 width: 6px;
@@ -106,16 +98,13 @@
               font-size: 1.2rem;
               color: var(--white);
             }
-            div{
-              font-size: 2.8rem;
-              color: var(--purple-500);
-            }
           }
 
           &--data{
             display: flex;
             flex-direction: row;
             justify-content: space-between;
+            align-items: baseline;
             color: var(--purple-500);
             font-size: 1.2rem;
 
@@ -137,11 +126,18 @@
               font-size: 2.8rem;
               color: var(--white);
             }
-            .previous{
+            &--previous{
               align-self: center;
               color: var(--grey-200);
               font-size: 0.8rem;
               padding-top: 0.5rem;
+
+              @include u.breakpoint('large') {
+                align-self: flex-start;
+              }
+              @include u.breakpoint('medium') {
+                align-self: flex-start;
+              }
             }
           }
         }
@@ -176,11 +172,11 @@
       }
     }
 
-    .menu {
+    &__menu {
       display: flex;
       flex-direction: column;
       width: 100%;
-      height: auto;
+      min-height: 200px;
       background-color: var(--navy-900);
 
       @include u.breakpoint("medium") {
@@ -191,48 +187,69 @@
         grid-area: menu;
       }
 
-      .menu__header {
+      &--header {
         display: flex;
         align-items: center;
-        justify-content: space-around;
+        justify-content: center;
+        gap: 2rem;
         flex-grow: 2;
         background-color: var(--purple-600);
-        border-bottom: 1px solid var(--white);
 
+        @include u.breakpoint("medium") {
+          align-items: center;
+          justify-content: flex-start;
+          padding-left: 2rem;
+        }
+        
         @include u.breakpoint("large") {
           flex-direction: column;
           align-items: center;
+          justify-content: center;
+          padding-left: 0;
         }
 
-        img {
+        img{
           width: 60px;
           height: 60px;
           border-radius: 50%;
           border: 2px solid var(--white);
-        }
-        h1 {
-          font-size: 0.8rem;
-          font-weight: 700;
-        }
+
+           @include u.breakpoint("large") {
+             width: 78px;
+             height: 78px;
+           }
+        } 
 
         &__text {
           flex-grow: 1;
-          margin-left: 2rem;
           color: var(--white);
-          width: 100%;
+         
+          @include u.breakpoint("large") {
+            text-align: center;
+             display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+          }
         }
       }
-      &__content {
+      &--content {
         display: flex;
         justify-content: space-around;
         align-items: center;
         flex-grow: 1;
         background-color: var(--navy-900);
         width: 100%;
+        padding: 1rem;
     
         @include u.breakpoint("large") {
           flex-direction: column;
           align-items: center;
+        }
+
+        &--item{
+
         }
       }
       h3{
