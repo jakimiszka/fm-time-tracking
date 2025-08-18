@@ -64,7 +64,7 @@
         display: flex;
         justify-content: flex-end;
         width: 100%;
-        margin-left: auto;
+        height: 20%;
       }
       img{
             width: 60px;
@@ -74,14 +74,29 @@
         &__content{
           display: flex;
           flex-direction: column;
+          flex-grow: 5;
           background-color: var(--navy-900);
           border-radius: 20px;
+          padding: 20px;
 
           &--category{
             display: flex;
             justify-content: space-between;
             align-items: baseline;
 
+            ul{
+              display: block;
+              padding: 0;
+
+            }
+            li{
+                display: inline-block;
+                width: 6px;
+                height: 6px;
+                background-color: var(--purple-500);
+                border-radius: 50%;
+                margin-right: 5px;
+            }
             h3{
               font-size: 1.2rem;
               color: var(--white);
@@ -89,6 +104,46 @@
             div{
               font-size: 2.8rem;
               color: var(--purple-500);
+            }
+          }
+
+          &--data{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            color: var(--purple-500);
+            font-size: 1.2rem;
+
+            @include u.breakpoint('large') {
+              flex-direction: column;
+              align-items: flex-start;
+              justify-content: center;  
+            }
+            @include u.breakpoint('medium') {
+              flex-direction: column;
+              align-items: flex-start;
+              justify-content: center;     
+            }
+
+            p{
+              margin: 0;
+            }
+            .time{
+              font-size: 2.8rem;
+              color: var(--white);
+            }
+            .previous{
+              align-self: center;
+              color: var(--grey-200);
+              font-size: 0.8rem;
+              padding-top: 0.5rem;
+
+              @include u.breakpoint('large') {
+                align-self: flex-start;
+              }
+              @include u.breakpoint('medium') {
+                align-self: flex-start;
+              }
             }
           }
         }
@@ -141,7 +196,7 @@
       .menu__header {
         display: flex;
         align-items: center;
-        justify-content: flex-start;
+        justify-content: space-around;
         flex-grow: 2;
         background-color: var(--purple-600);
         border-bottom: 1px solid var(--white);
