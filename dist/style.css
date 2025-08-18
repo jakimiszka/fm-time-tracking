@@ -57,6 +57,16 @@ a:active {
   text-decoration: none;
 }
 
+button {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
 :root {
   --black: black;
   --white: white; /* text + menu color - major */
@@ -336,8 +346,4 @@ a:active {
     align-items: flex-start;
     padding-left: 2rem;
   }
-}
-.grid__main__menu h3 {
-  padding: 0;
-  margin: 0;
 }/*# sourceMappingURL=style.css.map */
