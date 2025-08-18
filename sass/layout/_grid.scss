@@ -191,7 +191,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 2rem;
+        width: 100%;
         flex-grow: 2;
         background-color: var(--purple-600);
 
@@ -199,6 +199,7 @@
           align-items: center;
           justify-content: flex-start;
           padding-left: 2rem;
+          gap: 2rem;
         }
         
         @include u.breakpoint("large") {
@@ -206,6 +207,7 @@
           align-items: center;
           justify-content: center;
           padding-left: 0;
+          padding-top: 2rem;
         }
 
         img{
@@ -213,25 +215,31 @@
           height: 60px;
           border-radius: 50%;
           border: 2px solid var(--white);
-
+        
            @include u.breakpoint("large") {
              width: 78px;
              height: 78px;
            }
         } 
 
-        &__text {
-          flex-grow: 1;
-          color: var(--white);
-         
-          @include u.breakpoint("large") {
-            text-align: center;
-             display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 2rem;
-          }
+        &--text {
+            flex-grow: 1;
+            padding-left: 2rem;
+
+            @include u.breakpoint("large") {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+            }
+
+            &--name {
+              width: 100%;
+
+            }
+
+            &--username {
+              width: 100%;
+            }
         }
       }
       &--content {
@@ -245,7 +253,8 @@
     
         @include u.breakpoint("large") {
           flex-direction: column;
-          align-items: center;
+          align-items: flex-start;
+          padding-left: 2rem;
         }
 
         &--item{
