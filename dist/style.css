@@ -101,8 +101,6 @@ a:active {
   .grid__main {
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-    min-width: 768px;
-    min-height: 670px;
     max-width: 821px;
     max-height: 80vh;
   }
@@ -125,6 +123,16 @@ a:active {
   min-height: 200px;
   border-radius: 20px;
   background-color: var(--navy-900);
+}
+@media (min-width: 1024px) {
+  .grid__main--card {
+    align-self: flex-start;
+  }
+}
+@media (min-width: 820px) {
+  .grid__main--card {
+    align-self: flex-start;
+  }
 }
 .grid__main--card__image {
   display: flex;
@@ -203,16 +211,6 @@ a:active {
   font-size: 0.8rem;
   padding-top: 0.5rem;
 }
-@media (min-width: 1024px) {
-  .grid__main--card__content--data .previous {
-    align-self: flex-start;
-  }
-}
-@media (min-width: 820px) {
-  .grid__main--card__content--data .previous {
-    align-self: flex-start;
-  }
-}
 .grid__main--card--work {
   background-color: var(--orange-300);
 }
@@ -243,7 +241,7 @@ a:active {
   display: flex;
   flex-direction: column;
   width: 100%;
-  min-height: 200px;
+  height: auto;
   background-color: var(--navy-900);
 }
 @media (min-width: 820px) {

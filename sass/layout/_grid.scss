@@ -35,8 +35,6 @@
     @include u.breakpoint("medium") {
       grid-template-columns: repeat(3, 1fr);
       gap: 20px;
-      min-width: 768px;
-      min-height: 670px;
       max-width: 821px;
       max-height: 80vh;
     }
@@ -59,6 +57,13 @@
       min-height: 200px;
       border-radius: 20px;
       background-color: var(--navy-900);
+
+      @include u.breakpoint('large') {
+        align-self: flex-start;
+      }
+      @include u.breakpoint('medium') {
+        align-self: flex-start;
+      }
 
        &__image{
         display: flex;
@@ -137,13 +142,6 @@
               color: var(--grey-200);
               font-size: 0.8rem;
               padding-top: 0.5rem;
-
-              @include u.breakpoint('large') {
-                align-self: flex-start;
-              }
-              @include u.breakpoint('medium') {
-                align-self: flex-start;
-              }
             }
           }
         }
@@ -182,7 +180,7 @@
       display: flex;
       flex-direction: column;
       width: 100%;
-      min-height: 200px;
+      height: auto;
       background-color: var(--navy-900);
 
       @include u.breakpoint("medium") {
