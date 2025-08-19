@@ -6,7 +6,6 @@
 
 .grid {
     width: calc(100% - 2rem);
-    min-width: 300px;
     max-width: 400px;
 
   @include u.breakpoint("large") {

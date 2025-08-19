@@ -65,10 +65,11 @@ button {
   font: inherit;
   cursor: pointer;
   outline: inherit;
+  font-weight: 200;
 }
 
 .active {
-  font-weight: bold;
+  font-weight: 700;
   color: var(--white);
 }
 
@@ -100,7 +101,6 @@ button {
 
 .grid {
   width: calc(100% - 2rem);
-  min-width: 300px;
   max-width: 400px;
 }
 @media (min-width: 1024px) {
