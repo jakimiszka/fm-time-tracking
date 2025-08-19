@@ -1,24 +1,20 @@
-const daily_btn = document.querySelector(".daily");
-const weekly_btn = document.querySelector(".weekly");
-const monthly_btn = document.querySelector(".monthly");
+const buttons = document.querySelectorAll(".daily, .weekly, .monthly");
 
-daily_btn.addEventListener("click", () => {
-    // daily_btn.classList.add("active");
-    // weekly_btn.classList.remove("active");
-    // monthly_btn.classList.remove("active");
-    console.log("daily");
-});
+buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+        buttons.forEach(b => {
+            b.classList.remove("active");
+            b.classList.add("disabled");
+        });
+        btn.classList.add("active");
+        btn.classList.remove("disabled");
 
-weekly_btn.addEventListener("click", () => {
-    // daily_btn.classList.add("active");
-    // weekly_btn.classList.remove("active");
-    // monthly_btn.classList.remove("active");
-    console.log("weekly");
-});
-
-monthly_btn.addEventListener("click", () => {
-    // daily_btn.classList.add("active");
-    // weekly_btn.classList.remove("active");
-    // monthly_btn.classList.remove("active");
-    console.log("monthly");
+        if (btn.classList.contains("daily")) {
+            console.log("daily");
+        } else if (btn.classList.contains("weekly")) {
+            console.log("weekly");
+        } else if (btn.classList.contains("monthly")) {
+            console.log("monthly");
+        }
+    });
 });
