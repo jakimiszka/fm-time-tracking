@@ -302,6 +302,7 @@ button {
   align-items: center;
   justify-content: center;
   width: 100%;
+  padding: 1rem;
   flex-grow: 2;
   background-color: var(--purple-600);
 }
@@ -309,6 +310,7 @@ button {
   .grid__main__menu--header {
     align-items: center;
     justify-content: flex-start;
+    padding: 0;
     padding-left: 2rem;
     gap: 2rem;
   }
@@ -318,7 +320,7 @@ button {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding-left: 0;
+    padding: 0;
     padding-top: 2rem;
   }
 }
@@ -336,20 +338,42 @@ button {
 }
 .grid__main__menu--header--text {
   flex-grow: 1;
-  padding-left: 2rem;
 }
 @media (min-width: 1024px) {
   .grid__main__menu--header--text {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-left: 2rem;
   }
 }
 .grid__main__menu--header--text--name {
   width: 100%;
+  padding-left: 1rem;
+}
+@media (min-width: 1024px) {
+  .grid__main__menu--header--text--name {
+    padding-left: 0;
+  }
+}
+@media (min-width: 820px) {
+  .grid__main__menu--header--text--name {
+    padding-left: 0;
+  }
 }
 .grid__main__menu--header--text--username {
-  width: 100%;
+  width: auto;
+  padding-left: 1rem;
+}
+@media (min-width: 1024px) {
+  .grid__main__menu--header--text--username {
+    padding-left: 0;
+  }
+}
+@media (min-width: 820px) {
+  .grid__main__menu--header--text--username {
+    padding-left: 0;
+  }
 }
 .grid__main__menu--content {
   display: flex;
@@ -357,7 +381,7 @@ button {
   align-items: center;
   flex-grow: 1;
   background-color: var(--navy-900);
-  width: 100%;
+  width: auto;
   padding: 1rem;
 }
 @media (min-width: 1024px) {

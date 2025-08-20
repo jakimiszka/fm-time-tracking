@@ -1,18 +1,33 @@
 const buttons = document.querySelectorAll(".daily, .weekly, .monthly");
-const dataFields = document.querySelectorAll(".grid__main--card__content--data");
+const currentFields = document.querySelectorAll(".time-value-current");
+const previousFields = document.querySelectorAll(".time-value-previous");
+const timeUnits = document.querySelectorAll(".time-unit");
 
-dataFields.forEach(element => {
-    console.log(element.children[0].textContent)
-    console.log(element.children[1].textContent)
-})
+function prepareObject(){
+    let object = {};
+    for (let i = 0; i < currentFields.length; i++) {
+        object[currentFields[i].dataset.cat] = {
+            current: currentFields[i],
+            previous: previousFields[i],
+            unit: Array.from(timeUnits).filter(unit => unit.dataset.cat === currentFields[i].dataset.cat)
+        }
+    }
+    return object;
+}
+const fields = prepareObject();
+
+function chooseTimeUnit(num){
+    return num === 1 ? 'hr' : 'hrs';
+}
+function updateFields(fields, data, category, timeframe) {
+    console.log(fields);
+    console.log(data);
+}
 
 new Promise((resolve, reject) => {
 fetch('./data.json')
     .then(respond => {
         resolve(respond.json().then(data => {
-            const data2 = data;
-            // process data per time schedule - daily, weekly, monthly
-
             buttons.forEach(btn => {
                 btn.addEventListener("click", () => {
                     buttons.forEach(b => {
@@ -23,8 +38,7 @@ fetch('./data.json')
                     btn.classList.remove("disabled");
 
                     if (btn.classList.contains("daily")) {
-                        console.log(data2);
-                        console.log("daily");
+                        updateFields(fields, data, "Work", "daily");
                     } else if (btn.classList.contains("weekly")) {
                         console.log("weekly");
                     } else if (btn.classList.contains("monthly")) {
