@@ -1,11 +1,13 @@
+@use '../util' as u;
+
 h1{
-    font-size: 18px;
+    font-size: calc(0.875rem + 0.5vw);
     font-weight: 200;
     color: var(--navy-200);
     margin: 0;
 }
 h2{
-    font-size: 40px;
+    font-size: calc(2rem + 0.5vw);
     font-weight: 200;
     color: var(--white);
     margin: 0;
