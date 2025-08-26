@@ -16,18 +16,8 @@ fetch('./data.json')
                     });
                     btn.classList.add("active");
                     btn.classList.remove("disabled");
-
-                    switch (btn.classList[0]) {
-                        case "daily":
-                            updateFields(fields, data, "daily");
-                            break;
-                        case "weekly":
-                            updateFields(fields, data, "weekly");
-                            break;
-                        case "monthly":
-                            updateFields(fields, data, "monthly");
-                            break;
-                        }
+                    const timeframe = btn.classList[0];
+                    updateFields(fields, data, timeframe);
                 });
             });
         }))
